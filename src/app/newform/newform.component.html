@@ -1,0 +1,28 @@
+<p>newform works!</p>
+
+
+<div class="container">
+  <form action="" [formGroup]="login">
+    <input type="text" formControlName="username">
+    <ng-container formGroupName="fname">
+      <input type="text" formControlName="firstname">
+      <input type="text" formControlName="middlename">
+      <input type="text" formControlName="lastname">
+
+    </ng-container>
+    <input type="text" formControlName="age">
+    <ng-container formArrayName="hobbies">
+      <ng-container *ngFor="let item of gethob.controls,let i = index">
+        <input type="text" formControlName="{{i}}">
+        <!-- {{item}} -->
+
+      </ng-container>
+
+
+    </ng-container>
+
+  </form>
+  <button (click)="sub()">click</button>
+</div>
+
+<p>{{login.value|json}}</p>
